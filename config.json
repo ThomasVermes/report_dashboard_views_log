@@ -12,5 +12,16 @@
    "framework-version": 12,
    "no-auth-pages": [],
    "system-settings": [],
-   "project-settings": []
+   "project-settings": [],
+   "links": {
+		"project": [
+		{
+			"name": "report_views_log_table",
+			"icon": "gear",
+			"url": "report_views_log_table.php",
+			"id": "report_views_log_table_id",
+         "target": "_blank"
+		}
+   ]
+   }
 }

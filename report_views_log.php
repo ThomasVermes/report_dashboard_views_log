@@ -39,20 +39,22 @@ class report_views_log extends \ExternalModules\AbstractExternalModule {
       );
       $pseudoSql = "select timestamp, username, your_parameter_name where message = ?";
       $parameters = ['Report views log']; //parameter is a required field then I have to put it somehow
-
+      
       $result = $this->queryLogs($pseudoSql, $parameters);
+      $query_results = '<table><tr><th>Timestamp</th><th>Username</th><th>Report ID</th></tr>';
       while ($row = $result->fetch_assoc()) {
-        $timestamp = $row['timestamp'];
-        $username = $row['username'];
-        $your_parameter_name = $row['your_parameter_name'];
-        $query_results .= "Timestamp: $timestamp, Username: $username, report_id: $your_parameter_name\n";
+          $timestamp = $row['timestamp'];
+          $username = $row['username'];
+          $your_parameter_name = $row['your_parameter_name'];
+          $query_results .= "<tr><td>$timestamp</td><td>$username</td><td>$your_parameter_name</td></tr>";
       }
+      $query_results .= '</table>';
 
       // JavaScript to open modal with query results
       $encoded_query_results = json_encode($query_results);
       echo "<script>
               var modal = document.createElement('div');
-              modal.innerHTML = $encoded_query_results;
+              modal.innerHTML = '$encoded_query_results';
               modal.style.position = 'fixed';
               modal.style.top = '50%';
               modal.style.left = '50%';
