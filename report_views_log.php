@@ -8,67 +8,40 @@ class report_views_log extends \ExternalModules\AbstractExternalModule {
 
   public function redcap_every_page_top($project_id)
   {
-     
-    // from report tweak EM
-      // Bail if user isn't logged in
-      /*
-      if (!defined("USERID")) {
-          return;
-      }
-      */
 
-      //get report_id from the URL
+      //get report_id or dash_id from the URL
       $report_id = htmlspecialchars($_GET["report_id"]);
+      $dash_id = htmlspecialchars($_GET["dash_id"]);
 
       // Reports Page (Edit or View Report, Not the all-reports page or stats/charts)
-      if ($this->isPage('DataExport/index.php') && $project_id && $report_id &&
+      if 
+      (($this->isPage('DataExport/index.php') && $project_id && $report_id &&
       !isset($_GET['stats_charts']) &&
       !isset($_GET['create']) &&
       !isset($_GET['other_export_options']) &&
-      !isset($_GET['addedit'])) {
+      !isset($_GET['addedit'])) ||
+      //Dashboard Page
+      ($this->isPage('index.php') && $_GET['route'] == 'ProjectDashController:view' && $project_id))
+      {
 
-      REDCap::logEvent("Test action description", "test changes_made \nfirst_name = 'Paul'", NULL, NULL, $project_id);
-
-      
+        $page_type = '';
+        $page_id = '';
+        
+        if ($report_id) {
+        $page_type ='Report';
+        $page_id = $report_id;
+      } else if ($dash_id) {
+        $page_type ='Dashboard';
+        $page_id = $dash_id;
+      }
+       //EM log() method: 
       $logId = $this->log(
-        "Report views log",
+        "Report/Dashboard views log",
         [
-          "your_parameter_name" => $report_id,
-          "your_other_parameter_name" => "some string"
+          "Page_Type" => $page_type,
+          "Page_ID" => $page_id,
         ]
       );
-      $pseudoSql = "select timestamp, username, your_parameter_name where message = ?";
-      $parameters = ['Report views log']; //parameter is a required field then I have to put it somehow
-      
-      $result = $this->queryLogs($pseudoSql, $parameters);
-      $query_results = '<table><tr><th>Timestamp</th><th>Username</th><th>Report ID</th></tr>';
-      while ($row = $result->fetch_assoc()) {
-          $timestamp = $row['timestamp'];
-          $username = $row['username'];
-          $your_parameter_name = $row['your_parameter_name'];
-          $query_results .= "<tr><td>$timestamp</td><td>$username</td><td>$your_parameter_name</td></tr>";
-      }
-      $query_results .= '</table>';
-
-      // JavaScript to open modal with query results
-      $encoded_query_results = json_encode($query_results);
-      echo "<script>
-              var modal = document.createElement('div');
-              modal.innerHTML = '$encoded_query_results';
-              modal.style.position = 'fixed';
-              modal.style.top = '50%';
-              modal.style.left = '50%';
-              modal.style.transform = 'translate(-50%, -50%)';
-              modal.style.backgroundColor = '#fff';
-              modal.style.padding = '20px';
-              modal.style.border = '1px solid #000';
-              modal.style.zIndex = '9999';
-              document.body.appendChild(modal);
-            </script>";
-
-  //LOG
-      $date_time_stamp = date("Y-m-d_H-i-s");
-      file_put_contents('C:/Bitnami/wampstack-8.1.10-0/apache2/htdocs/redcap/modules/report_views_log_v1.0.0/' . $project_id ."_" . $report_id . '_' . $date_time_stamp .'.txt', $query_results); //localhost
     }
 
   }
