@@ -1,0 +1,16 @@
+{
+   "name": "Report views log",
+   "namespace": "USBTOV\\report_views_log",
+   "description": "Report page view is saved in the log",
+   "authors": [
+      {
+         "name": "Thomas Vermes",
+         "email": "thomas.vermes@usb.ch",
+         "institution": "University Hospital Basel"
+      }
+   ],
+   "framework-version": 12,
+   "no-auth-pages": [],
+   "system-settings": [],
+   "project-settings": []
+}
