@@ -15,3 +15,7 @@ The `report_views_log_table.php` file complements the log functionality by prese
 
 - jQuery
 - DataTables
+
+## Result
+
+![image](https://github.com/ThomasVermes/report_views_log/assets/75424115/6ec6be20-6f50-462b-8e9e-9a32fa51e47a)
