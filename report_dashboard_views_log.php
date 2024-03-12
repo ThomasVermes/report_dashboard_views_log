@@ -1,10 +1,10 @@
 <?php
 // Set the namespace defined in your config file
-namespace USBTOV\report_views_log;
+namespace USBTOV\report_dashboard_views_log;
 
 USE REDCap;
 // Declare your module class, which must extend AbstractExternalModule 
-class report_views_log extends \ExternalModules\AbstractExternalModule {
+class report_dashboard_views_log extends \ExternalModules\AbstractExternalModule {
 
   public function redcap_every_page_top($project_id)
   {

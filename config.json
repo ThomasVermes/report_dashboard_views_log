@@ -1,7 +1,7 @@
 {
-   "name": "Report views log",
-   "namespace": "USBTOV\\report_views_log",
-   "description": "Report page view is saved in the log",
+   "name": "Report Dashboard views log",
+   "namespace": "USBTOV\\report_dashboard_views_log",
+   "description": "Reports and dashboards pages' view are saved in the log",
    "authors": [
       {
          "name": "Thomas Vermes",
@@ -16,10 +16,10 @@
    "links": {
 		"project": [
 		{
-			"name": "report_views_log_table",
-			"icon": "gear",
-			"url": "report_views_log_table.php",
-			"id": "report_views_log_table_id",
+			"name": "report_dashboard_views_log_table",
+			"icon": "fa-regular fa-rectangle-list",
+			"url": "report_dashboard_views_log_table.php",
+			"id": "report_dashboard_views_log_table_id",
          "target": "_blank"
 		}
    ]

@@ -19,7 +19,7 @@
             <th>Timestamp</th>
             <th>Username</th>
             <th>Page Type</th>
-            <th>Report ID</th>
+            <th>Report/Dashboard ID</th>
         </tr>
     </thead>
     <tbody>
@@ -30,10 +30,10 @@
         
         while ($row = $result->fetch_assoc()) {
             echo "<tr>";
-            echo "<td>" . $row['timestamp'] . "</td>";
-            echo "<td>" . $row['username'] . "</td>";
-            echo "<td>" . $row['Page_Type'] . "</td>";
-            echo "<td>" . $row['Page_ID'] . "</td>";
+            echo "<td>" . $module->escape($row['timestamp']) . "</td>";
+            echo "<td>" . $module->escape($row['username']) . "</td>";
+            echo "<td>" . $module->escape($row['Page_Type']) . "</td>";
+            echo "<td>" . $module->escape($row['Page_ID']) . " </td>";
             echo "</tr>";
         }
         ?>
@@ -60,16 +60,18 @@ $(document).ready(function() {
                 let column = this;
                 let title = column.header().textContent;
 
-                // Create input element
+                // Create input element and sanitize it!
                 let input = document.createElement('input');
                 input.placeholder = "Search: " + title;
                 $(input).on('keyup change', function () {
-                    if (column.search() !== this.value) {
-                        column.search(this.value).draw();
+                    let sanitizedValue = escapeHtml(this.value);
+
+                    if (column.search() !== sanitizedValue) {
+                        column.search(sanitizedValue).draw();
                     }
                 });
 
-                // Append input to column header
+                 // Append input to column header
                 $(column.footer()).empty().append(input);
             });
             this.api().columns.adjust().draw();
@@ -77,6 +79,15 @@ $(document).ready(function() {
         }
     });
 });
+
+function escapeHtml(unsafe) {
+    return unsafe.replace(/&/g, "&amp;")
+                 .replace(/</g, "&lt;")
+                 .replace(/>/g, "&gt;")
+                 .replace(/"/g, "&quot;")
+                 .replace(/'/g, "&#039;");
+}
+
 </script>
 
 
