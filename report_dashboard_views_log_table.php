@@ -1,17 +1,35 @@
+<?php
+//Include Composer autoloading
+require __DIR__ . '/vendor/autoload.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Report Views</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdn.datatables.net/2.0.1/js/dataTables.js"></script>
+<!--
+JQuery libraries and its DataTables plug-in
+Not necessary to refer them since they are already included in redcap. That is only true if in EM's config.json:
+    "show-header-and-footer": true
 
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.1/css/dataTables.dataTables.css" />
 
-    
+Content delivery network (CDN):
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/2.0.1/js/dataTables.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/2.0.1/css/dataTables.dataTables.css" />
+
+composer:
+<script src="/redcap/modules/report_views_log_v1.0.0/vendor/components/jquery/jquery.min.js"></script>
+<script src="/redcap/modules/report_views_log_v1.0.0/vendor/datatables.net/datatables.net/js/dataTables.js"></script>    
+<link rel="stylesheet" href="/redcap/modules/report_views_log_v1.0.0/vendor/datatables.net/datatables.net-dt/css/dataTables.dataTables.css">
+<script src="/redcap/modules/report_views_log_v1.0.0/vendor/datatables.net/datatables.net/js/dataTables.js"></script>    
+-->
+
 </head>
 <body>
+
+
 <div style="width:50%;text-align:left;">
 <table id="reportTable" class="display">
     <thead>
@@ -51,8 +69,8 @@
 
 <!-- JQuery DataTable initialisation -->
 <script>
-$(document).ready(function() {
-    $('#reportTable').DataTable({
+jQuery(document).ready(function() {
+    jQuery('#reportTable').DataTable({
         paging: true,
         order: [['0', 'desc']],
         initComplete: function () {
@@ -63,7 +81,7 @@ $(document).ready(function() {
                 // Create input element and sanitize it!
                 let input = document.createElement('input');
                 input.placeholder = "Search: " + title;
-                $(input).on('keyup change', function () {
+                jQuery(input).on('keyup change', function () {
                     let sanitizedValue = escapeHtml(this.value);
 
                     if (column.search() !== sanitizedValue) {
@@ -72,7 +90,7 @@ $(document).ready(function() {
                 });
 
                  // Append input to column header
-                $(column.footer()).empty().append(input);
+                 jQuery(column.footer()).empty().append(input);
             });
             this.api().columns.adjust().draw();
 
