@@ -1,30 +1,9 @@
-<?php
-//Include Composer autoloading
-require __DIR__ . '/vendor/autoload.php';
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Report Views</title>
-<!--
-JQuery libraries and its DataTables plug-in
-Not necessary to refer them since they are already included in redcap. That is only true if in EM's config.json:
-    "show-header-and-footer": true
-
-
-Content delivery network (CDN):
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="https://cdn.datatables.net/2.0.1/js/dataTables.js"></script>
-<link rel="stylesheet" href="https://cdn.datatables.net/2.0.1/css/dataTables.dataTables.css" />
-
-composer:
-<script src="/redcap/modules/report_views_log_v1.0.0/vendor/components/jquery/jquery.min.js"></script>
-<script src="/redcap/modules/report_views_log_v1.0.0/vendor/datatables.net/datatables.net/js/dataTables.js"></script>    
-<link rel="stylesheet" href="/redcap/modules/report_views_log_v1.0.0/vendor/datatables.net/datatables.net-dt/css/dataTables.dataTables.css">
-<script src="/redcap/modules/report_views_log_v1.0.0/vendor/datatables.net/datatables.net/js/dataTables.js"></script>    
--->
+    <title>Report and Dashboard Views</title>
 
 </head>
 <body>
@@ -64,10 +43,8 @@ composer:
 </tfoot>
 </table>
     </div>
-  
 
-
-<!-- JQuery DataTable initialisation -->
+<!-- JQuery DataTable initialisation, Library and plugin seems to be already integrated in REDCap -->
 <script>
 jQuery(document).ready(function() {
     jQuery('#reportTable').DataTable({
