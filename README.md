@@ -1,3 +1,6 @@
+# PLEASE DO NOT INSTALL IT
+A major bug was founded. It doesn't not allow to edit report's filter with advanced filter logic
+
 # README
 
 ## Introduction
