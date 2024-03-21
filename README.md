@@ -1,5 +1,5 @@
-# PLEASE DO NOT INSTALL IT
-A major bug was founded. It doesn't not allow to edit report's filter with advanced filter logic
+# PLEASE install only v1.0.1
+A major bug was founded in v1.0.0 It doesn't not allow to edit report's filter with advanced filter logic
 
 # README
 
