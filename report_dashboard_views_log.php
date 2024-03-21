@@ -46,5 +46,3 @@ class report_dashboard_views_log extends \ExternalModules\AbstractExternalModule
 
   }
 }
-?>
-
