@@ -7,17 +7,16 @@ This External Module (EM) provides functionality to create a log for each visite
 
 N.b: API activities on reports are not logged.
 
-## report_views_log
-
-In the `report_views_log.php` page, a log is implemented to register each visit to a report or dashboard page. This log captures essential information about the visited page, such as the timestamp, user, and page type.
-
-## report_views_log_table
-
-The `report_views_log_table.php` file complements the log functionality by presenting the recorded data in a structured format. It creates an HTML page where the log from `report_views_log.php` is queried and displayed.
-
 ## Result
 
 ![image](https://github.com/ThomasVermes/report_views_log/assets/75424115/6ec6be20-6f50-462b-8e9e-9a32fa51e47a)
 
-# PLEASE install only from v1.0.1
-A major bug was founded in v1.0.0 It doesn't not allow to edit report's filter with advanced filter logic
+## For Developers
+### report_views_log
+
+In the `report_views_log.php` page, a log is implemented to register each visit to a report or dashboard page. This log captures essential information about the visited page, such as the timestamp, user, and page type.
+
+### report_views_log_table
+
+The `report_views_log_table.php` file complements the log functionality by presenting the recorded data in a structured format. It creates an HTML page where the log from `report_views_log.php` is queried and displayed.
+
