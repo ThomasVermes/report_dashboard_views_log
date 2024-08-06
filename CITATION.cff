@@ -1,0 +1,21 @@
+authors:
+- email: thomas.vermes@usb.ch
+  family-names: Vermes
+  given-names: Thomas
+- address: Spitalstrasse 21
+  city: Basel
+  country: CH
+  name: University Hospital Basel
+  post-code: '4031'
+- address: Spitalstrasse 21
+  city: Basel
+  country: CH
+  name: University Hospital Basel - Orthopaedics and traumatology
+  post-code: '4031'
+  website: https://www.unispital-basel.ch/en/orthopaedie-traumatologie
+cff-version: 1.2.0
+date-released: '2024-04-02'
+message: If you use this software, please cite it using the metadata from this file.
+title: Report dashboard views log
+type: software
+version: v1.0.3
