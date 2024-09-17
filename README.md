@@ -11,8 +11,14 @@ This External Module (EM) creates a log for each visited report or dashboard pag
 <br>- Variables are not piped within the html code.
 
 ## Result
+![image](https://github.com/user-attachments/assets/6553b382-0a1c-41b2-8969-d870c052ae04)
+**View html code**
+![image](https://github.com/user-attachments/assets/1bed3ef2-17dd-4b0f-a14a-2ee284b62074)
+**View Page**
+![image](https://github.com/user-attachments/assets/31c25c00-3204-4c9a-bd25-c16283fe7426)
 
-![image](https://github.com/ThomasVermes/report_views_log/assets/75424115/6ec6be20-6f50-462b-8e9e-9a32fa51e47a)
+
+
 
 ## For Developers
 ### report_views_log
