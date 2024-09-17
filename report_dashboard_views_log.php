@@ -29,13 +29,24 @@ class report_dashboard_views_log extends \ExternalModules\AbstractExternalModule
 
         $page_type = '';
         $page_id = '';
+        $dash_html='';
 
         if ($report_id) {
           $page_type = 'Report';
           $page_id = $report_id;
-        } else if ($dash_id) {
+          //warning: html code for reports not collected
+        } elseif ($dash_id) {
           $page_type = 'Dashboard';
           $page_id = $dash_id;
+          //query to get html code
+          $sql = "SELECT body FROM redcap_project_dashboards WHERE dash_id = ?";
+          $params = [$dash_id];
+          $result = $this->query($sql, $params);
+          if ($result->num_rows > 0) {
+              $row = $result->fetch_assoc();
+              $dash_html = $row['body'];
+          }
+          //log html code
         }
         //EM log() method: 
         $logId = $this->log(
@@ -43,6 +54,7 @@ class report_dashboard_views_log extends \ExternalModules\AbstractExternalModule
           [
             "Page_Type" => $page_type,
             "Page_ID" => $page_id,
+            "Html_Code" => $dash_html,
           ]
         );
       }

@@ -2,10 +2,13 @@
 
 ## Introduction
 
-This External Module (EM) provides functionality to create a log for each visited report or dashboard page within the REDCap project. It facilitates the identification of which reports and dashboards are viewed and used by the users and which ones are deprecated.
+This External Module (EM) creates a log for each visited report or dashboard page within the REDCap project. It facilitates the identification of which reports and dashboards are viewed and used by the users and which ones are deprecated. The html code of the visited dashboard is also logged (only for dashboard)
 **The log displays visited pages from EM installation time, it does not act retrospectively.**
 
-N.b: API activities on reports are not logged.
+
+<u>Notes:</u>
+<br>- API activities on reports are not logged.
+<br>- Variables are not piped within the html code.
 
 ## Result
 
